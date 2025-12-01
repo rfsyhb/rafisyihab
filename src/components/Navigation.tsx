@@ -20,13 +20,14 @@ export default function Navigation() {
               key={item.name}
               className="flex items-center"
             >
-              <button
+              <Link
+                href={item.href}
                 className={`px-2 py-1 rounded-full hover:bg-foreground/10 text-sm cursor-pointer${
                   isCurrent(item.href) ? ' bg-foreground/10' : ''
                 }`}
               >
                 <item.icon />
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
