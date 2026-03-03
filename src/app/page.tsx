@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -134,19 +135,44 @@ export default function Home() {
 
   return (
     <div className="font-mono bg-foreground text-background flex-1 items-center justify-center flex">
-      <section className="border border-dashed p-6 max-w-120 flex flex-col gap-4">
-        <header>
-          <p className="text-xs uppercase tracking-[0.25rem] opacity-60">
-            Profile
-          </p>
-          <h1 className="text-xl">Rafi Syihab</h1>
-          <p className="text-sm opacity-70">Early-career fullstack developer</p>
+      <section className="md:border md:border-dashed p-6 max-w-120 flex flex-col gap-2 md:gap-4">
+        <header className="w-full flex flex-row">
+          <div>
+            <p className="text-xs uppercase tracking-[0.25rem] opacity-60">
+              Profile
+            </p>
+            <h1 className="md:text-xl">Rafi Syihab</h1>
+            <p className="text-xs md:text-sm opacity-70">
+              Early-career fullstack developer
+            </p>
+          </div>
+          <Image
+            src="/images/ozrafi_ig_profile_picture.jpg"
+            alt="Profile picture"
+            width={80}
+            height={80}
+            className="rounded-full ml-auto w-16 h-16 md:w-20 md:h-20"
+          />
         </header>
 
-        <section className="text-sm">
+        <section className="text-sm flex flex-col gap-1">
           <p>
             Fresh graduate in Informatics Engineering from the University of
-            Palangka Raya; Still trying to leave the average category.
+            Palangka Raya. Passionate about web development, particularly in
+            frontend engineering.
+          </p>
+          <div className="relative w-full h-[120px]">
+            <Image
+              src="/images/pink_laptop.png"
+              alt="Pink laptop"
+              fill
+              className="object-cover object-top" // atau object-contain
+            />
+          </div>
+          <p>
+            I have gained hands-on experience with React, Next.js, and Tailwind
+            CSS through building several web applications primarily to support
+            my own productivity and workflows.
           </p>
         </section>
 
