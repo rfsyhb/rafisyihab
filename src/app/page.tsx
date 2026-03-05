@@ -158,8 +158,8 @@ export default function Home() {
         <section className="text-sm flex flex-col gap-1">
           <p>
             Fresh graduate in Informatics Engineering from the University of
-            Palangka Raya. Passionate about web development, particularly in
-            frontend engineering.
+            Palangka Raya, passionate about building web applications
+            that solve problems, while exploring data science.
           </p>
           <div className="relative w-full h-[120px]">
             <Image
@@ -170,8 +170,8 @@ export default function Home() {
             />
           </div>
           <p>
-            I have gained hands-on experience with React, Next.js, and Tailwind
-            CSS through building several web applications primarily to support
+            I have gained hands-on experience with React, Next.js, Tailwind
+            CSS, and Supabase through building several web applications primarily to support
             my own productivity and workflows.
           </p>
         </section>

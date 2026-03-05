@@ -2,10 +2,12 @@ import { items } from '@/libs/showcaseItems';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import CommitList from './_components/CommitList';
 
 export const metadata: Metadata = {
   title: 'showcase',
-}
+};
 
 export default async function ShowcasePage({
   searchParams,
@@ -14,6 +16,9 @@ export default async function ShowcasePage({
 }) {
   const { id: selectedId } = await searchParams;
   const showcaseItems = items;
+  const getRepoPath = (githubUrl: string) => {
+    return new URL(githubUrl).pathname.slice(1);
+  };
 
   return (
     <div className="font-mono flex flex-col md:flex-row justify-center items-center w-full p-1 md:p-8 bg-foreground text-background md:gap-2">
@@ -85,16 +90,30 @@ export default async function ShowcasePage({
               {/* Github Url (Repository) */}
               {showcaseItems.find((item) => item.id === selectedId)!
                 .githubUrl && (
-                <Link
-                  href={
-                    showcaseItems.find((item) => item.id === selectedId)!
-                      .githubUrl!
-                  }
-                  className="text-blue-500 hover:underline text-sm md:text-base w-fit"
-                  target="_blank"
-                >
-                  View on GitHub
-                </Link>
+                <>
+                  <Link
+                    href={
+                      showcaseItems.find((item) => item.id === selectedId)!
+                        .githubUrl!
+                    }
+                    className="text-blue-500 hover:underline text-sm md:text-base w-fit"
+                    target="_blank"
+                  >
+                    View on GitHub
+                  </Link>
+                  <Suspense
+                    fallback={
+                      <p className="text-sm opacity-50">Loading commits...</p>
+                    }
+                  >
+                    <CommitList
+                      repoPath={getRepoPath(
+                        showcaseItems.find((item) => item.id === selectedId)!
+                          .githubUrl!,
+                      )}
+                    />
+                  </Suspense>
+                </>
               )}
             </div>
             {/* Image */}
