@@ -10,7 +10,7 @@ export default async function CommitList({ repoPath }: { repoPath: string }) {
   const commits: Commit[] = await res.json()
 
   return (
-    <ul className="text-xs opacity-70 h-14 overflow-y-auto flex flex-col">
+    <ul className="text-xs opacity-70 overflow-y-auto flex flex-col min-h-0 flex-1">
       {commits.map((c) => (
         <li key={c.sha}>
           <span className="opacity-50">{c.sha.slice(0, 7)}</span>{' '}
