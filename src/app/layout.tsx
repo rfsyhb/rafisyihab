@@ -14,8 +14,27 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'rfsyhb',
+  title: {
+    default: 'rfsyhb',
+    template: 'rfsyhb | %s',
+  },
   description: 'just a personal website',
+  openGraph: {
+    title: 'rfsyhb',
+    description: 'just a personal website',
+    url: 'https://rfsyhb.vercel.app',
+    siteName: 'rfsyhb',
+    images: [
+      {
+        url: 'https://rfsyhb.vercel.app/images/pink_laptop.png',
+        width: 1200,
+        height: 630,
+        alt: 'rfsyhb',
+      },
+    ],
+    locale: 'en-US',
+    type: 'website',
+  }
 };
 
 export default function RootLayout({
